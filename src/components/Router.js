@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom"; // https://chiki-cha.tistory.com/m/111
 import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 
-const AppRouter = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+const AppRouter = ({ isLoggedIn }) => {
     return (
         <Router>
             <Routes>
