@@ -1,15 +1,20 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom"; // https://chiki-cha.tistory.com/m/111
 import Auth from "routes/Auth";
 import Home from "routes/Home";
+import Profile from "routes/Profile";
+import Navigation from "./Navigation";
 
 const AppRouter = ({ isLoggedIn }) => {
     return (
         <Router>
+            {isLoggedIn && <Navigation />}
             <Routes>
                 {isLoggedIn ? (
-                    <Route path="/" element={<Home />} />
+                    <>
+                        <Route exact path="/profile" element={<Profile />} />
+                    </>
                 ) : (
-                    <Route path="/" element={<Auth />} />
+                    <Route exact path="/" element={<Auth />} />
                 )}
             </Routes>
         </Router>
