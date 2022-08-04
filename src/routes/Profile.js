@@ -1,10 +1,10 @@
-import { authService, dbService } from "fbase";
-import { useState, useEffect } from "react";
+import { authService } from "fbase";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";    // https://stackoverflow.com/questions/62861269/attempted-import-error-usehistory-is-not-exported-from-react-router-dom
 
 const Profile = ({ userObj, refreshUser }) => {
     const navigate = useNavigate();
-    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName || "");
 
     const onLogOutClick = () => {
         authService.signOut();

@@ -4,7 +4,6 @@ import { authService } from "fbase";
 
 function App() {
   const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
   // setInterval(() => console.log(authService.currentUser), 2000);
 
@@ -17,7 +16,7 @@ function App() {
           updateProfile: (args) => user.updateProfile(args),
         });
       } else {
-        setIsLoggedIn(false);
+        setUserObj(false);
       }
       setInit(true);
     });
